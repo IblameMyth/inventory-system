@@ -34,7 +34,6 @@
       <div class="panel-header summary-header">
         <div class="header-actions">
           <button class="menu-toggle" id="loadDashboardBtn" title="Load Inventory Dashboard" aria-label="Load inventory dashboard">☰</button>
-          <button class="danger tiny header-clear" id="clearBtn">Clear All</button>
         </div>
         <h2>Quick Summary</h2>
         <div class="header-tools" aria-label="Data tools">
@@ -179,7 +178,6 @@
       exportBtn: document.getElementById("exportBtn"),
       restockAllStockBtn: document.getElementById("restockAllStockBtn"),
       sellAllStockBtn: document.getElementById("sellAllStockBtn"),
-      clearBtn: document.getElementById("clearBtn"),
       loadDashboardBtn: document.getElementById("loadDashboardBtn"),
       dashboardSection: document.getElementById("dashboardSection"),
       clock: document.getElementById("clock")
@@ -219,10 +217,41 @@
       };
     }
 
+    async function loadFromJsonFallback() {
+      const fallbackSources = [
+        "/inventory_data.json?v=" + Date.now(),
+        "../backend/inventory_data.json?v=" + Date.now(),
+        "inventory_data.json?v=" + Date.now()
+      ];
+
+      for (const source of fallbackSources) {
+        try {
+          const response = await fetch(source);
+          if (!response.ok) {
+            continue;
+          }
+          const parsed = await response.json();
+          if (Array.isArray(parsed)) {
+            return parsed;
+          }
+        } catch {
+          continue;
+        }
+      }
+
+      return null;
+    }
+
     async function loadInventoryData() {
       try {
         const data = await apiRequest("/items");
         state.items = Array.isArray(data.items) ? data.items.map(normalizeLoadedItem) : [];
+        if (state.items.length === 0) {
+          const fallbackData = await loadFromJsonFallback();
+          if (Array.isArray(fallbackData) && fallbackData.length > 0) {
+            state.items = fallbackData.map(normalizeLoadedItem);
+          }
+        }
         backendAvailable = true;
         localStorage.removeItem(OFFLINE_CACHE_KEY);
       } catch (error) {
@@ -237,13 +266,9 @@
           }
 
           if (state.items.length === 0) {
-            const response = await fetch(`inventory_data.json?v=${Date.now()}`);
-            if (!response.ok) {
+            const fileData = await loadFromJsonFallback();
+            if (!fileData) {
               throw new Error("Inventory file not found.");
-            }
-            const fileData = await response.json();
-            if (!Array.isArray(fileData)) {
-              throw new Error("Invalid inventory JSON format.");
             }
             state.items = fileData.map(normalizeLoadedItem);
           }
@@ -528,34 +553,6 @@
       URL.revokeObjectURL(url);
     }
 
-    async function clearAll() {
-      const confirmClear = confirm("Clear all inventory data? This will remove every item from the current project.");
-      if (!confirmClear) return;
-
-      try {
-        let data;
-        try {
-          data = await apiRequest("/items", { method: "DELETE" });
-        } catch {
-          state.items = [];
-          data = { items: state.items };
-        }
-
-        state.items = Array.isArray(data.items) ? data.items : [];
-        state.search = "";
-        state.category = "all";
-        state.stock = "all";
-        resetForm();
-        els.search.value = "";
-        els.filterCategory.value = "all";
-        els.filterStock.value = "all";
-        updateFilters();
-        renderTable();
-      } catch (error) {
-        alert(error.message || "Unable to clear inventory.");
-      }
-    }
-
     async function sellAllStock() {
       const confirmSellAll = confirm("Sell all stock for all items? Quantity for every item will become 0.");
       if (!confirmSellAll) return;
@@ -639,9 +636,6 @@
     });
     els.sellAllStockBtn.addEventListener("click", () => {
       sellAllStock();
-    });
-    els.clearBtn.addEventListener("click", () => {
-      clearAll();
     });
     els.loadDashboardBtn.addEventListener("click", async () => {
       await loadInventoryData();

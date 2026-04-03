@@ -336,11 +336,6 @@ h1 {
   transform: translateY(0) scale(0.96);
 }
 
-.header-clear {
-  padding: 10px 12px;
-  width: auto;
-}
-
 .dashboard-hidden {
   display: none;
 }

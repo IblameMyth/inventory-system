@@ -5,8 +5,9 @@ from threading import Lock
 from typing import Any
 from flask import Flask, jsonify, request, send_from_directory
 BASE_DIR = Path(__file__).resolve().parent
+FRONTEND_DIR = BASE_DIR.parent / "front_end"
 DATA_FILE = BASE_DIR / "inventory_data.json"
-app = Flask(__name__, static_folder=str(BASE_DIR), static_url_path="")
+app = Flask(__name__, static_folder=str(FRONTEND_DIR), static_url_path="")
 _DATA_LOCK = Lock()
 def _normalize_id(value: Any) -> str:
     return str(value or "").strip().upper()
@@ -111,7 +112,12 @@ def _validate_item_payload(payload: dict[str, Any], existing_ids: set[str]) -> t
     return item, None
 @app.get("/")
 def home() -> Any:
-    return send_from_directory(BASE_DIR, "index.html")
+    return send_from_directory(FRONTEND_DIR, "index.html")
+
+
+@app.get("/inventory_data.json")
+def get_inventory_data_file() -> Any:
+    return send_from_directory(BASE_DIR, "inventory_data.json")
 @app.get("/api/items")
 def get_items() -> Any:
     with _DATA_LOCK:
@@ -193,14 +199,6 @@ def delete_item(item_id: str) -> Any:
         _save_items(items)
 
     return jsonify({"deleted": deleted, "items": items})
-
-
-@app.delete("/api/items")
-def clear_items() -> Any:
-    with _DATA_LOCK:
-        items: list[dict[str, Any]] = []
-        _save_items(items)
-    return jsonify({"items": items})
 
 
 @app.post("/api/items/restock-all")
