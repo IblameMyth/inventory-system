@@ -16,11 +16,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Copy static data into site folder
+        run: cp backend/inventory_data.json front_end/inventory_data.json
+
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: .
+          publish_dir: front_end
           force_orphan: true
           enable_jekyll: false
