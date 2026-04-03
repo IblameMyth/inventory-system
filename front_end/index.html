@@ -507,15 +507,29 @@
       try {
         let data;
         if (action === "restock") {
-          data = await apiRequest(`/items/${encodeURIComponent(id)}/restock`, {
-            method: "POST",
-            body: JSON.stringify({ units: 10 })
-          });
+          try {
+            data = await apiRequest(`/items/${encodeURIComponent(id)}/restock`, {
+              method: "POST",
+              body: JSON.stringify({ units: 10 })
+            });
+          } catch {
+            item.quantity += 10;
+            data = { items: state.items };
+          }
         } else if (action === "sell") {
-          data = await apiRequest(`/items/${encodeURIComponent(id)}/sell`, {
-            method: "POST",
-            body: JSON.stringify({ units: 1 })
-          });
+          try {
+            data = await apiRequest(`/items/${encodeURIComponent(id)}/sell`, {
+              method: "POST",
+              body: JSON.stringify({ units: 1 })
+            });
+          } catch {
+            if (item.quantity <= 0) {
+              alert("Not enough stock for this sale.");
+              return;
+            }
+            item.quantity -= 1;
+            data = { items: state.items };
+          }
         } else if (action === "sell-all") {
           try {
             data = await apiRequest(`/items/${encodeURIComponent(id)}/sell-all`, {
@@ -528,13 +542,19 @@
         } else if (action === "delete") {
           const confirmDelete = confirm(`Delete ${item.name} from inventory?`);
           if (!confirmDelete) return;
-          data = await apiRequest(`/items/${encodeURIComponent(id)}`, {
-            method: "DELETE"
-          });
+          try {
+            data = await apiRequest(`/items/${encodeURIComponent(id)}`, {
+              method: "DELETE"
+            });
+          } catch {
+            state.items = state.items.filter((entry) => normalizeId(entry.id) !== id);
+            data = { items: state.items };
+          }
         }
 
         if (data && Array.isArray(data.items)) {
           state.items = data.items;
+          saveOfflineCache();
           updateFilters();
           renderTable();
         }
