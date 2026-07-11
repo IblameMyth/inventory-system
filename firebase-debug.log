@@ -1,0 +1,224 @@
+[debug] [2026-07-11T17:02:00.741Z] ----------------------------------------------------------------------
+[debug] [2026-07-11T17:02:00.766Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --non-interactive
+[debug] [2026-07-11T17:02:00.766Z] CLI Version:   15.23.0
+[debug] [2026-07-11T17:02:00.766Z] Platform:      win32
+[debug] [2026-07-11T17:02:00.766Z] Node Version:  v24.18.0
+[debug] [2026-07-11T17:02:00.767Z] Detected Agent: github_copilot_vscode_agent
+[debug] [2026-07-11T17:02:00.767Z] Time:          Sat Jul 11 2026 22:32:00 GMT+0530 (India Standard Time)
+[debug] [2026-07-11T17:02:00.767Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-11T17:02:18.588Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-11T17:02:18.590Z] > authorizing via signed-in user (mithileshladdha12345@gmail.com)
+[debug] [2026-07-11T17:02:18.590Z] [iam] checking project inventory-system-5b60d for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-11T17:02:18.669Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:02:18.669Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:02:18.676Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions [none]
+[debug] [2026-07-11T17:02:18.676Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions  x-goog-user-project=inventory-system-5b60d
+[debug] [2026-07-11T17:02:18.676Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-11T17:02:20.480Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions 403
+[debug] [2026-07-11T17:02:20.481Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions {"error":{"code":403,"message":"Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes.","status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"USER_PROJECT_DENIED","domain":"googleapis.com","metadata":{"service":"cloudresourcemanager.googleapis.com","consumer":"projects/inventory-system-5b60d","consoleUrl":"https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d","containerInfo":"inventory-system-5b60d"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developer console IAM admin","url":"https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d"}]}]}}
+[debug] [2026-07-11T17:02:20.486Z] [iam] error while checking permissions, command may fail: Request to https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions had HTTP Error: 403, Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes.
+[debug] [2026-07-11T17:02:20.490Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:02:20.490Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:02:20.491Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d [none]
+[debug] [2026-07-11T17:02:21.153Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d 403
+[debug] [2026-07-11T17:02:21.155Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-07-11T17:02:21.155Z] Request to https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d had HTTP Error: 403, The caller does not have permission
+[debug] [2026-07-11T17:02:21.499Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:53:12)
+    at RetryOperation._fn (C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:415:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+[error] 
+[error] Error: Failed to get Firebase project inventory-system-5b60d. Please make sure the project exists and your account has permission to access it.
+[debug] [2026-07-11T17:02:28.809Z] ----------------------------------------------------------------------
+[debug] [2026-07-11T17:02:28.816Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --non-interactive --debug
+[debug] [2026-07-11T17:02:28.818Z] CLI Version:   15.23.0
+[debug] [2026-07-11T17:02:28.820Z] Platform:      win32
+[debug] [2026-07-11T17:02:28.820Z] Node Version:  v24.18.0
+[debug] [2026-07-11T17:02:28.821Z] Detected Agent: github_copilot_vscode_agent
+[debug] [2026-07-11T17:02:28.821Z] Time:          Sat Jul 11 2026 22:32:28 GMT+0530 (India Standard Time)
+[debug] [2026-07-11T17:02:28.822Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-11T17:02:36.822Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-11T17:02:36.826Z] > authorizing via signed-in user (mithileshladdha12345@gmail.com)
+[debug] [2026-07-11T17:02:36.827Z] [iam] checking project inventory-system-5b60d for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-11T17:02:36.849Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:02:36.850Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:02:36.854Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions [none]
+[debug] [2026-07-11T17:02:36.856Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions  x-goog-user-project=inventory-system-5b60d
+[debug] [2026-07-11T17:02:36.857Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-11T17:02:38.649Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions 403
+[debug] [2026-07-11T17:02:38.650Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions {"error":{"code":403,"message":"Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes.","status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"USER_PROJECT_DENIED","domain":"googleapis.com","metadata":{"service":"cloudresourcemanager.googleapis.com","consumer":"projects/inventory-system-5b60d","containerInfo":"inventory-system-5b60d","consoleUrl":"https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developer console IAM admin","url":"https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d"}]}]}}
+[debug] [2026-07-11T17:02:38.652Z] [iam] error while checking permissions, command may fail: Request to https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions had HTTP Error: 403, Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes.
+[debug] [2026-07-11T17:02:38.654Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:02:38.654Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:02:38.654Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d [none]
+[debug] [2026-07-11T17:02:39.242Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d 403
+[debug] [2026-07-11T17:02:39.243Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-07-11T17:02:39.247Z] Request to https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d had HTTP Error: 403, The caller does not have permission
+[debug] [2026-07-11T17:02:39.712Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:53:12)
+    at RetryOperation._fn (C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:415:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+[error] 
+[error] Error: Failed to get Firebase project inventory-system-5b60d. Please make sure the project exists and your account has permission to access it.
+[debug] [2026-07-11T17:03:00.111Z] ----------------------------------------------------------------------
+[debug] [2026-07-11T17:03:00.160Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --project inventory-system-5b60d --non-interactive
+[debug] [2026-07-11T17:03:00.166Z] CLI Version:   15.23.0
+[debug] [2026-07-11T17:03:00.167Z] Platform:      win32
+[debug] [2026-07-11T17:03:00.168Z] Node Version:  v24.18.0
+[debug] [2026-07-11T17:03:00.168Z] Detected Agent: github_copilot_vscode_agent
+[debug] [2026-07-11T17:03:00.168Z] Time:          Sat Jul 11 2026 22:33:00 GMT+0530 (India Standard Time)
+[debug] [2026-07-11T17:03:00.168Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-11T17:03:15.075Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-11T17:03:15.075Z] > authorizing via signed-in user (mithileshladdha12345@gmail.com)
+[debug] [2026-07-11T17:03:15.076Z] [iam] checking project inventory-system-5b60d for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-11T17:03:15.131Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:03:15.132Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:03:15.134Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions [none]
+[debug] [2026-07-11T17:03:15.134Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions  x-goog-user-project=inventory-system-5b60d
+[debug] [2026-07-11T17:03:15.134Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-11T17:03:17.189Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions 403
+[debug] [2026-07-11T17:03:17.190Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions {"error":{"code":403,"message":"Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes.","status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"USER_PROJECT_DENIED","domain":"googleapis.com","metadata":{"consoleUrl":"https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d","service":"cloudresourcemanager.googleapis.com","containerInfo":"inventory-system-5b60d","consumer":"projects/inventory-system-5b60d"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developer console IAM admin","url":"https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d"}]}]}}
+[debug] [2026-07-11T17:03:17.194Z] [iam] error while checking permissions, command may fail: Request to https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions had HTTP Error: 403, Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes.
+[debug] [2026-07-11T17:03:17.198Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:03:17.198Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:03:17.199Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d [none]
+[debug] [2026-07-11T17:03:18.127Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d 403
+[debug] [2026-07-11T17:03:18.127Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-07-11T17:03:18.128Z] Request to https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d had HTTP Error: 403, The caller does not have permission
+[debug] [2026-07-11T17:03:18.512Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:53:12)
+    at RetryOperation._fn (C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:415:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+[error] 
+[error] Error: Failed to get Firebase project inventory-system-5b60d. Please make sure the project exists and your account has permission to access it.
+[debug] [2026-07-11T17:04:41.015Z] ----------------------------------------------------------------------
+[debug] [2026-07-11T17:04:41.044Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --project inventory-system-5b60d --non-interactive
+[debug] [2026-07-11T17:04:41.049Z] CLI Version:   15.23.0
+[debug] [2026-07-11T17:04:41.050Z] Platform:      win32
+[debug] [2026-07-11T17:04:41.050Z] Node Version:  v24.18.0
+[debug] [2026-07-11T17:04:41.050Z] Detected Agent: github_copilot_vscode_agent
+[debug] [2026-07-11T17:04:41.050Z] Time:          Sat Jul 11 2026 22:34:41 GMT+0530 (India Standard Time)
+[debug] [2026-07-11T17:04:41.050Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-11T17:04:49.737Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-11T17:04:49.737Z] > authorizing via signed-in user (mithileshladdha12345@gmail.com)
+[debug] [2026-07-11T17:04:49.738Z] [iam] checking project inventory-system-5b60d for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-11T17:04:49.796Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:04:49.797Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:04:49.805Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions [none]
+[debug] [2026-07-11T17:04:49.805Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions  x-goog-user-project=inventory-system-5b60d
+[debug] [2026-07-11T17:04:49.805Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-11T17:04:51.752Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions 403
+[debug] [2026-07-11T17:04:51.756Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions {"error":{"code":403,"message":"Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes.","status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"USER_PROJECT_DENIED","domain":"googleapis.com","metadata":{"service":"cloudresourcemanager.googleapis.com","consumer":"projects/inventory-system-5b60d","containerInfo":"inventory-system-5b60d","consoleUrl":"https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developer console IAM admin","url":"https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d"}]}]}}
+[debug] [2026-07-11T17:04:51.758Z] [iam] error while checking permissions, command may fail: Request to https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions had HTTP Error: 403, Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes.
+[debug] [2026-07-11T17:04:51.758Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:04:51.759Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:04:51.759Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d [none]
+[debug] [2026-07-11T17:04:52.341Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d 403
+[debug] [2026-07-11T17:04:52.342Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-07-11T17:04:52.343Z] Request to https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d had HTTP Error: 403, The caller does not have permission
+[debug] [2026-07-11T17:04:52.674Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:53:12)
+    at RetryOperation._fn (C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:415:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+[error] 
+[error] Error: Failed to get Firebase project inventory-system-5b60d. Please make sure the project exists and your account has permission to access it.
+[debug] [2026-07-11T17:04:58.605Z] ----------------------------------------------------------------------
+[debug] [2026-07-11T17:04:58.610Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --project inventory-system-5b60d --non-interactive
+[debug] [2026-07-11T17:04:58.615Z] CLI Version:   15.23.0
+[debug] [2026-07-11T17:04:58.615Z] Platform:      win32
+[debug] [2026-07-11T17:04:58.615Z] Node Version:  v24.18.0
+[debug] [2026-07-11T17:04:58.616Z] Detected Agent: github_copilot_vscode_agent
+[debug] [2026-07-11T17:04:58.616Z] Time:          Sat Jul 11 2026 22:34:58 GMT+0530 (India Standard Time)
+[debug] [2026-07-11T17:04:58.616Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-11T17:05:07.747Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-11T17:05:07.748Z] > authorizing via signed-in user (mithileshladdha12345@gmail.com)
+[debug] [2026-07-11T17:05:07.748Z] [iam] checking project inventory-system-5b60d for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-11T17:05:07.786Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:05:07.786Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:05:07.787Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions [none]
+[debug] [2026-07-11T17:05:07.788Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions  x-goog-user-project=inventory-system-5b60d
+[debug] [2026-07-11T17:05:07.788Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-11T17:05:09.460Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions 403
+[debug] [2026-07-11T17:05:09.461Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions {"error":{"code":403,"message":"Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes.","status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"USER_PROJECT_DENIED","domain":"googleapis.com","metadata":{"consoleUrl":"https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d","containerInfo":"inventory-system-5b60d","consumer":"projects/inventory-system-5b60d","service":"cloudresourcemanager.googleapis.com"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developer console IAM admin","url":"https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d"}]}]}}
+[debug] [2026-07-11T17:05:09.467Z] [iam] error while checking permissions, command may fail: Request to https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions had HTTP Error: 403, Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes.
+[debug] [2026-07-11T17:05:09.470Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:05:09.470Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:05:09.474Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d [none]
+[debug] [2026-07-11T17:05:10.034Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d 403
+[debug] [2026-07-11T17:05:10.034Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-07-11T17:05:10.035Z] Request to https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d had HTTP Error: 403, The caller does not have permission
+[debug] [2026-07-11T17:05:10.356Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:53:12)
+    at RetryOperation._fn (C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:415:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+[error] 
+[error] Error: Failed to get Firebase project inventory-system-5b60d. Please make sure the project exists and your account has permission to access it.
+[debug] [2026-07-11T17:05:25.756Z] ----------------------------------------------------------------------
+[debug] [2026-07-11T17:05:25.768Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --project inventory-system-5b60d --non-interactive --debug
+[debug] [2026-07-11T17:05:25.771Z] CLI Version:   15.23.0
+[debug] [2026-07-11T17:05:25.771Z] Platform:      win32
+[debug] [2026-07-11T17:05:25.772Z] Node Version:  v24.18.0
+[debug] [2026-07-11T17:05:25.772Z] Detected Agent: github_copilot_vscode_agent
+[debug] [2026-07-11T17:05:25.772Z] Time:          Sat Jul 11 2026 22:35:25 GMT+0530 (India Standard Time)
+[debug] [2026-07-11T17:05:25.772Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-11T17:05:34.471Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-11T17:05:34.473Z] > authorizing via signed-in user (mithileshladdha12345@gmail.com)
+[debug] [2026-07-11T17:05:34.474Z] [iam] checking project inventory-system-5b60d for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-11T17:05:34.493Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:05:34.495Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:05:34.498Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions [none]
+[debug] [2026-07-11T17:05:34.499Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions  x-goog-user-project=inventory-system-5b60d
+[debug] [2026-07-11T17:05:34.499Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-11T17:05:36.162Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions 403
+[debug] [2026-07-11T17:05:36.164Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions {"error":{"code":403,"message":"Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes.","status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"USER_PROJECT_DENIED","domain":"googleapis.com","metadata":{"service":"cloudresourcemanager.googleapis.com","consumer":"projects/inventory-system-5b60d","consoleUrl":"https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d","containerInfo":"inventory-system-5b60d"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developer console IAM admin","url":"https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d"}]}]}}
+[debug] [2026-07-11T17:05:36.167Z] [iam] error while checking permissions, command may fail: Request to https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions had HTTP Error: 403, Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes.
+[debug] [2026-07-11T17:05:36.173Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:05:36.174Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:05:36.176Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d [none]
+[debug] [2026-07-11T17:05:36.744Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d 403
+[debug] [2026-07-11T17:05:36.745Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-07-11T17:05:36.746Z] Request to https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d had HTTP Error: 403, The caller does not have permission
+[debug] [2026-07-11T17:05:37.044Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:53:12)
+    at RetryOperation._fn (C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:415:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+[error] 
+[error] Error: Failed to get Firebase project inventory-system-5b60d. Please make sure the project exists and your account has permission to access it.
+[debug] [2026-07-11T17:33:02.309Z] ----------------------------------------------------------------------
+[debug] [2026-07-11T17:33:02.328Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --project inventory-system-5b60d --non-interactive --debug
+[debug] [2026-07-11T17:33:02.329Z] CLI Version:   15.23.0
+[debug] [2026-07-11T17:33:02.330Z] Platform:      win32
+[debug] [2026-07-11T17:33:02.330Z] Node Version:  v24.18.0
+[debug] [2026-07-11T17:33:02.331Z] Detected Agent: github_copilot_vscode_agent
+[debug] [2026-07-11T17:33:02.332Z] Time:          Sat Jul 11 2026 23:03:02 GMT+0530 (India Standard Time)
+[debug] [2026-07-11T17:33:02.332Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-11T17:33:16.684Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-11T17:33:16.691Z] > authorizing via signed-in user (mithileshladdha12345@gmail.com)
+[debug] [2026-07-11T17:33:16.695Z] [iam] checking project inventory-system-5b60d for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-11T17:33:16.806Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:33:16.812Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:33:16.817Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions [none]
+[debug] [2026-07-11T17:33:16.819Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions  x-goog-user-project=inventory-system-5b60d
+[debug] [2026-07-11T17:33:16.820Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-11T17:33:18.754Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions 403
+[debug] [2026-07-11T17:33:18.755Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions {"error":{"code":403,"message":"Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes.","status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"USER_PROJECT_DENIED","domain":"googleapis.com","metadata":{"containerInfo":"inventory-system-5b60d","consoleUrl":"https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d","service":"cloudresourcemanager.googleapis.com","consumer":"projects/inventory-system-5b60d"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developer console IAM admin","url":"https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d"}]}]}}
+[debug] [2026-07-11T17:33:18.757Z] [iam] error while checking permissions, command may fail: Request to https://cloudresourcemanager.googleapis.com/v1/projects/inventory-system-5b60d:testIamPermissions had HTTP Error: 403, Caller does not have required permission to use project inventory-system-5b60d. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=inventory-system-5b60d and then retry. Propagation of the new permission may take a few minutes.
+[debug] [2026-07-11T17:33:18.759Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:33:18.760Z] Checked if tokens are valid: true, expires at: 1783792891183
+[debug] [2026-07-11T17:33:18.762Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d [none]
+[debug] [2026-07-11T17:33:19.428Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d 403
+[debug] [2026-07-11T17:33:19.432Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-07-11T17:33:19.434Z] Request to https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d had HTTP Error: 403, The caller does not have permission
+[debug] [2026-07-11T17:33:19.721Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/inventory-system-5b60d had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:53:12)
+    at RetryOperation._fn (C:\Users\Pradyum Laddha\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:415:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+[error] 
+[error] Error: Failed to get Firebase project inventory-system-5b60d. Please make sure the project exists and your account has permission to access it.
