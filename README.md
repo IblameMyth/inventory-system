@@ -35,6 +35,8 @@ Open `front_end/index.html` in a browser, or serve the folder with a local stati
 
 This repository is set up for Vercel through `vercel.json` and `api/index.py`.
 
+Live app: [Inventory Control Center](https://inventory-system-puce-eight.vercel.app/)
+
 Deploy steps:
 
 1. Push the repo to GitHub.
