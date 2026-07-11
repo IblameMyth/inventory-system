@@ -1,0 +1,19 @@
+{
+  "hosting": {
+    "public": "front_end",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/**",
+        "run": {
+          "serviceId": "inventory-api",
+          "region": "us-central1"
+        }
+      }
+    ]
+  }
+}
