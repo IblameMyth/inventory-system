@@ -1,33 +1,34 @@
 <div align="center">
 
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=6366F1&height=200&section=header&text=Inventory%20System&fontSize=60&animation=fadeIn" width="100%" alt="Header Banner" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=8B0000&height=200&section=header&text=INVENTORY%20CONTROL%20CENTER&fontSize=50&animation=fadeIn" width="100%" alt="Header Banner" />
 
   <p align="center">
-    <b>📦 Full-Stack Automated Inventory & Asset Management Platform</b><br />
-    <i>Features severe-fallback offline resilience, serverless Vercel API routes, Firebase integration, and CI/CD deployment pipelines.</i>
+    <b>🎓 COLLEGE MINI PROJECT | REAL-TIME INVENTORY MANAGEMENT DASHBOARD</b><br />
+    <i>A sleek, modern interactive dashboard built for seamless stock tracking, real-time analytics, and quick catalog controls.</i>
   </p>
 
   <!-- Badges -->
   <p align="center">
     <a href="#">
-      <img src="https://img.shields.io/badge/Architecture-FullStack-6366F1?style=for-the-badge" alt="Architecture" />
+      <img src="https://img.shields.io/badge/Project-College_Mini_Project-8B0000?style=for-the-badge&logo=academic&logoColor=white" alt="College Mini Project" />
     </a>
     <a href="#">
-      <img src="https://img.shields.io/badge/Deployment-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+      <img src="https://img.shields.io/badge/UI-Dark_Gold_%26_Crimson-FFD700?style=for-the-badge&labelColor=1A0D0D" alt="UI Theme" />
     </a>
     <a href="#">
-      <img src="https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions" />
+      <img src="https://img.shields.io/badge/Analytics-Real--Time-00F5FF?style=for-the-badge" alt="Real Time Analytics" />
     </a>
     <a href="#">
-      <img src="https://img.shields.io/badge/Backend-Node.js_--%3E_Serverless-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+      <img src="https://img.shields.io/badge/Export-JSON_Data-10B981?style=for-the-badge&logo=json&logoColor=white" alt="JSON Export" />
     </a>
   </p>
 
   <p align="center">
     <a href="#-key-features"><b>⚡ Features</b></a> •
+    <a href="#-dashboard-overview"><b>📊 Dashboard</b></a> •
     <a href="#-tech-stack"><b>🛠️ Tech Stack</b></a> •
-    <a href="#-project-architecture"><b>📂 Directory Layout</b></a> •
-    <a href="#-quick-start"><b>🚀 Getting Started</b></a>
+    <a href="#-project-structure"><b>📂 Structure</b></a> •
+    <a href="#-getting-started"><b>🚀 Quick Start</b></a>
   </p>
 
   <br />
@@ -36,26 +37,42 @@
 
 ---
 
-## ⚡ Key Architectural Features
+## ⚡ Key Features
 
-- 🔄 **Full-Stack Decoupled Architecture:** Clean separation of client frontend (`/front_end`), serverless endpoints (`/api`), and core backend service business logic (`/backend`).
-- 🛡️ **Hardened Offline Fallback:** Custom client-side resilience mechanisms ensuring per-item offline caching and fallback handling on hosted pages.
-- ⚡ **Serverless Vercel Deployment:** Production API layer powered by Vercel serverless functions configured via `vercel.json`.
-- 🔥 **Firebase Services Integration:** Pre-configured Firebase ecosystem setup with custom `.firebaserc` and `firebase.json` target configs.
-- ⚙️ **Automated CI/CD Workflows:** Automated deployment and checks running via `.github/workflows` GitHub Actions pipeline.
+- 📊 **Live Inventory Analytics:** Monitor Total Products, Total Units, Total Inventory Value (Rs.), and Low Stock Alerts in real time.
+- ⚡ **Batch Action Controls:** Instantly manage stock levels using built-in **"Restock All"** and **"Sell All Stock"** operations.
+- 💾 **Data Export:** Built-in **"Download JSON"** functionality to backup and export your custom inventory catalog anytime.
+- 🎨 **Premium Glassmorphism UI:** Crimson and Stark Gold dark-mode aesthetic with interactive stat cards and a responsive layout.
+- 🕒 **Real-Time Clock & Timestamp:** Integrated header clock tracking exact operational timestamps.
 
 ---
 
-## 🛠️ Tech Stack
+## 📊 Dashboard Modules & Controls
+
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <h3>🚀 Quick Action Hub</h3>
+      <p>• <b>Download JSON:</b> Backup raw stock data.<br />• <b>Restock All:</b> Bulk update inventory levels.<br />• <b>Sell All Stock:</b> Instant stock reset option.</p>
+    </td>
+    <td width="50%" align="center">
+      <h3>📈 Live Stat Metrics</h3>
+      <p>• <b>Total Products:</b> Count of unique items.<br />• <b>Total Units:</b> Total available stock quantity.<br />• <b>Inventory Value:</b> Real-time valuation in Rs.<br />• <b>Low Stock:</b> Items needing restocking.</p>
+    </td>
+  </tr>
+</table>
+
+---
+
+## 🛠️ Tech Stack & Architecture
 
 <div align="center">
 
-| Layer | Technology |
+| Component | Technology / Tools |
 | :--- | :--- |
 | **Frontend UI** | <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" /> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" /> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" /> |
-| **Serverless & Runtime** | <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" /> <img src="https://img.shields.io/badge/Vercel_Functions-000000?style=for-the-badge&logo=vercel&logoColor=white" /> |
-| **Cloud & Storage** | <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" /> |
-| **DevOps & CI/CD** | <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" /> |
+| **Theme & FX** | `Dark Gold & Crimson Palette` `Glassmorphism` `Flexbox/Grid Layout` `Responsive Cards` |
+| **Data Format** | `JSON Data Serialization` `Local State Management` |
 
 </div>
 
@@ -63,24 +80,16 @@
 
 ## 📂 Project Architecture
 
-Based on the repository source tree:
-
 ```bash
 Inventory-System/
-├── 📁 .github/workflows/   # GitHub Actions automated deployment scripts
-├── 📁 .vscode/             # Editor workspace configs
-├── 📁 api/                 # Vercel serverless API endpoint functions
-├── 📁 backend/             # Core backend business logic & routines
-├── 📁 front_end/           # Client-side UI & offline resilience scripts
-├── 📁 node_modules/        # Project packages & dependencies
-├── 📄 .firebaserc          # Firebase project alias configurations
-├── 📄 .gitattributes       # Git path attributes
-├── 📄 firebase.json        # Firebase hosting/services config
-├── 📄 package.json         # Node.js project manifest & scripts
-├── 📄 package-lock.json    # Exact dependency tree lockfile
-├── 📄 vercel.json          # Vercel deployment routes & configuration
-└── 📄 README.md            # Repository documentation
-## Notes
+├── 📁 .github/workflows/   # Deployment pipelines
+├── 📁 .vscode/             # Workspace settings
+├── 📁 api/                 # Serverless endpoints
+├── 📁 backend/             # Core backend logic
+├── 📁 front_end/           # Dashboard UI source
+├── 📄 index.html           # Main Control Center UI
+├── 📄 package.json         # Dependencies & project scripts
+└── 📄 README.md            # Project documentation
 
 - If Firestore credentials are not configured, the backend falls back to JSON storage.
 - Generated files like `node_modules`, logs, and cache files should not be committed.
