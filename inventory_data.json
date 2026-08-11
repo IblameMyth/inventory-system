@@ -1,0 +1,882 @@
+[
+  {
+    "item_id": "ITM001",
+    "name": "Aashirvaad Atta 5kg",
+    "category": "Grains and Pulses",
+    "quantity": 20,
+    "price": 285.0,
+    "reorder_level": 12
+  },
+  {
+    "item_id": "ITM002",
+    "name": "Wheat Flour 10kg",
+    "category": "Grains and Pulses",
+    "quantity": 10,
+    "price": 540.0,
+    "reorder_level": 8
+  },
+  {
+    "item_id": "ITM003",
+    "name": "Rice Premium 5kg",
+    "category": "Grains and Pulses",
+    "quantity": 20,
+    "price": 360.0,
+    "reorder_level": 10
+  },
+  {
+    "item_id": "ITM004",
+    "name": "Basmati Rice 1kg",
+    "category": "Grains and Pulses",
+    "quantity": 10,
+    "price": 145.0,
+    "reorder_level": 18
+  },
+  {
+    "item_id": "ITM005",
+    "name": "Sona Masoori Rice 5kg",
+    "category": "Grains and Pulses",
+    "quantity": 10,
+    "price": 310.0,
+    "reorder_level": 7
+  },
+  {
+    "item_id": "ITM006",
+    "name": "Toor Dal 1kg",
+    "category": "Grains and Pulses",
+    "quantity": 10,
+    "price": 165.0,
+    "reorder_level": 14
+  },
+  {
+    "item_id": "ITM007",
+    "name": "Moong Dal 1kg",
+    "category": "Grains and Pulses",
+    "quantity": 10,
+    "price": 172.0,
+    "reorder_level": 12
+  },
+  {
+    "item_id": "ITM008",
+    "name": "Chana Dal 1kg",
+    "category": "Grains and Pulses",
+    "quantity": 10,
+    "price": 128.0,
+    "reorder_level": 11
+  },
+  {
+    "item_id": "ITM009",
+    "name": "Rajma 1kg",
+    "category": "Grains and Pulses",
+    "quantity": 10,
+    "price": 155.0,
+    "reorder_level": 9
+  },
+  {
+    "item_id": "ITM010",
+    "name": "Kabuli Chana 1kg",
+    "category": "Grains and Pulses",
+    "quantity": 10,
+    "price": 148.0,
+    "reorder_level": 8
+  },
+  {
+    "item_id": "ITM011",
+    "name": "Turmeric Powder 100g",
+    "category": "Spices",
+    "quantity": 10,
+    "price": 32.0,
+    "reorder_level": 20
+  },
+  {
+    "item_id": "ITM012",
+    "name": "Red Chilli Powder 100g",
+    "category": "Spices",
+    "quantity": 10,
+    "price": 38.0,
+    "reorder_level": 18
+  },
+  {
+    "item_id": "ITM013",
+    "name": "Coriander Powder 200g",
+    "category": "Spices",
+    "quantity": 10,
+    "price": 44.0,
+    "reorder_level": 15
+  },
+  {
+    "item_id": "ITM014",
+    "name": "Garam Masala 100g",
+    "category": "Spices",
+    "quantity": 10,
+    "price": 58.0,
+    "reorder_level": 14
+  },
+  {
+    "item_id": "ITM015",
+    "name": "Cumin Seeds 100g",
+    "category": "Spices",
+    "quantity": 10,
+    "price": 66.0,
+    "reorder_level": 10
+  },
+  {
+    "item_id": "ITM016",
+    "name": "Black Pepper 50g",
+    "category": "Spices",
+    "quantity": 10,
+    "price": 92.0,
+    "reorder_level": 9
+  },
+  {
+    "item_id": "ITM017",
+    "name": "Mustard Seeds 100g",
+    "category": "Spices",
+    "quantity": 10,
+    "price": 28.0,
+    "reorder_level": 11
+  },
+  {
+    "item_id": "ITM018",
+    "name": "Cardamom 25g",
+    "category": "Spices",
+    "quantity": 10,
+    "price": 148.0,
+    "reorder_level": 6
+  },
+  {
+    "item_id": "ITM019",
+    "name": "Cloves 25g",
+    "category": "Spices",
+    "quantity": 10,
+    "price": 132.0,
+    "reorder_level": 6
+  },
+  {
+    "item_id": "ITM020",
+    "name": "Bay Leaves 25g",
+    "category": "Spices",
+    "quantity": 10,
+    "price": 24.0,
+    "reorder_level": 8
+  },
+  {
+    "item_id": "ITM021",
+    "name": "Toned Milk 1L",
+    "category": "Dairy",
+    "quantity": 10,
+    "price": 58.0,
+    "reorder_level": 16
+  },
+  {
+    "item_id": "ITM022",
+    "name": "Curd 500g",
+    "category": "Dairy",
+    "quantity": 10,
+    "price": 38.0,
+    "reorder_level": 14
+  },
+  {
+    "item_id": "ITM023",
+    "name": "Paneer 200g",
+    "category": "Dairy",
+    "quantity": 10,
+    "price": 96.0,
+    "reorder_level": 10
+  },
+  {
+    "item_id": "ITM024",
+    "name": "Butter 100g",
+    "category": "Dairy",
+    "quantity": 10,
+    "price": 62.0,
+    "reorder_level": 9
+  },
+  {
+    "item_id": "ITM025",
+    "name": "Ghee 1L",
+    "category": "Dairy",
+    "quantity": 10,
+    "price": 620.0,
+    "reorder_level": 5
+  },
+  {
+    "item_id": "ITM026",
+    "name": "Cheese Slices Pack",
+    "category": "Dairy",
+    "quantity": 10,
+    "price": 115.0,
+    "reorder_level": 7
+  },
+  {
+    "item_id": "ITM027",
+    "name": "Fresh Cream 200ml",
+    "category": "Dairy",
+    "quantity": 10,
+    "price": 72.0,
+    "reorder_level": 6
+  },
+  {
+    "item_id": "ITM028",
+    "name": "Lassi Sweet 250ml",
+    "category": "Dairy",
+    "quantity": 10,
+    "price": 22.0,
+    "reorder_level": 12
+  },
+  {
+    "item_id": "ITM029",
+    "name": "Buttermilk 500ml",
+    "category": "Dairy",
+    "quantity": 10,
+    "price": 26.0,
+    "reorder_level": 13
+  },
+  {
+    "item_id": "ITM030",
+    "name": "Milk Powder 500g",
+    "category": "Dairy",
+    "quantity": 10,
+    "price": 198.0,
+    "reorder_level": 8
+  },
+  {
+    "item_id": "ITM031",
+    "name": "Tea Premium 250g",
+    "category": "Beverages",
+    "quantity": 10,
+    "price": 145.0,
+    "reorder_level": 18
+  },
+  {
+    "item_id": "ITM032",
+    "name": "Coffee Instant 100g",
+    "category": "Beverages",
+    "quantity": 10,
+    "price": 168.0,
+    "reorder_level": 8
+  },
+  {
+    "item_id": "ITM033",
+    "name": "Green Tea Box",
+    "category": "Beverages",
+    "quantity": 10,
+    "price": 175.0,
+    "reorder_level": 7
+  },
+  {
+    "item_id": "ITM034",
+    "name": "Bournvita 500g",
+    "category": "Beverages",
+    "quantity": 10,
+    "price": 285.0,
+    "reorder_level": 6
+  },
+  {
+    "item_id": "ITM035",
+    "name": "Horlicks 500g",
+    "category": "Beverages",
+    "quantity": 10,
+    "price": 295.0,
+    "reorder_level": 6
+  },
+  {
+    "item_id": "ITM036",
+    "name": "Orange Juice 1L",
+    "category": "Beverages",
+    "quantity": 10,
+    "price": 88.0,
+    "reorder_level": 10
+  },
+  {
+    "item_id": "ITM037",
+    "name": "Mango Juice 1L",
+    "category": "Beverages",
+    "quantity": 10,
+    "price": 92.0,
+    "reorder_level": 10
+  },
+  {
+    "item_id": "ITM038",
+    "name": "Mineral Water 1L",
+    "category": "Beverages",
+    "quantity": 10,
+    "price": 20.0,
+    "reorder_level": 24
+  },
+  {
+    "item_id": "ITM039",
+    "name": "Cola Drink 500ml",
+    "category": "Beverages",
+    "quantity": 10,
+    "price": 35.0,
+    "reorder_level": 20
+  },
+  {
+    "item_id": "ITM040",
+    "name": "Lemon Soda 300ml",
+    "category": "Beverages",
+    "quantity": 10,
+    "price": 24.0,
+    "reorder_level": 18
+  },
+  {
+    "item_id": "ITM041",
+    "name": "Potato Chips Salted",
+    "category": "Snacks",
+    "quantity": 10,
+    "price": 20.0,
+    "reorder_level": 24
+  },
+  {
+    "item_id": "ITM042",
+    "name": "Potato Chips Masala",
+    "category": "Snacks",
+    "quantity": 10,
+    "price": 20.0,
+    "reorder_level": 24
+  },
+  {
+    "item_id": "ITM043",
+    "name": "Kurkure Masala Munch",
+    "category": "Snacks",
+    "quantity": 10,
+    "price": 20.0,
+    "reorder_level": 22
+  },
+  {
+    "item_id": "ITM044",
+    "name": "Banana Chips",
+    "category": "Snacks",
+    "quantity": 10,
+    "price": 30.0,
+    "reorder_level": 13
+  },
+  {
+    "item_id": "ITM045",
+    "name": "Aloo Bhujia",
+    "category": "Snacks",
+    "quantity": 10,
+    "price": 35.0,
+    "reorder_level": 15
+  },
+  {
+    "item_id": "ITM046",
+    "name": "Mixture Namkeen",
+    "category": "Snacks",
+    "quantity": 10,
+    "price": 42.0,
+    "reorder_level": 14
+  },
+  {
+    "item_id": "ITM047",
+    "name": "Roasted Peanuts",
+    "category": "Snacks",
+    "quantity": 10,
+    "price": 28.0,
+    "reorder_level": 16
+  },
+  {
+    "item_id": "ITM048",
+    "name": "Khakhra Pack",
+    "category": "Snacks",
+    "quantity": 10,
+    "price": 48.0,
+    "reorder_level": 8
+  },
+  {
+    "item_id": "ITM049",
+    "name": "Murukku Pack",
+    "category": "Snacks",
+    "quantity": 10,
+    "price": 40.0,
+    "reorder_level": 7
+  },
+  {
+    "item_id": "ITM050",
+    "name": "Bhakarwadi Pack",
+    "category": "Snacks",
+    "quantity": 10,
+    "price": 55.0,
+    "reorder_level": 6
+  },
+  {
+    "item_id": "ITM051",
+    "name": "Parle-G Biscuit Pack",
+    "category": "Bakery and Breakfast",
+    "quantity": 10,
+    "price": 10.0,
+    "reorder_level": 28
+  },
+  {
+    "item_id": "ITM052",
+    "name": "Marie Gold Biscuit Pack",
+    "category": "Bakery and Breakfast",
+    "quantity": 10,
+    "price": 20.0,
+    "reorder_level": 22
+  },
+  {
+    "item_id": "ITM053",
+    "name": "Oats 1kg",
+    "category": "Bakery and Breakfast",
+    "quantity": 10,
+    "price": 165.0,
+    "reorder_level": 9
+  },
+  {
+    "item_id": "ITM054",
+    "name": "Corn Flakes 500g",
+    "category": "Bakery and Breakfast",
+    "quantity": 10,
+    "price": 198.0,
+    "reorder_level": 8
+  },
+  {
+    "item_id": "ITM055",
+    "name": "Poha 1kg",
+    "category": "Bakery and Breakfast",
+    "quantity": 10,
+    "price": 52.0,
+    "reorder_level": 12
+  },
+  {
+    "item_id": "ITM056",
+    "name": "Upma Rava 1kg",
+    "category": "Bakery and Breakfast",
+    "quantity": 10,
+    "price": 48.0,
+    "reorder_level": 11
+  },
+  {
+    "item_id": "ITM057",
+    "name": "Bread Loaf",
+    "category": "Bakery and Breakfast",
+    "quantity": 10,
+    "price": 32.0,
+    "reorder_level": 14
+  },
+  {
+    "item_id": "ITM058",
+    "name": "Jam Strawberry 500g",
+    "category": "Bakery and Breakfast",
+    "quantity": 10,
+    "price": 105.0,
+    "reorder_level": 7
+  },
+  {
+    "item_id": "ITM059",
+    "name": "Honey 500g",
+    "category": "Bakery and Breakfast",
+    "quantity": 10,
+    "price": 165.0,
+    "reorder_level": 6
+  },
+  {
+    "item_id": "ITM060",
+    "name": "Peanut Butter 340g",
+    "category": "Bakery and Breakfast",
+    "quantity": 10,
+    "price": 190.0,
+    "reorder_level": 6
+  },
+  {
+    "item_id": "ITM061",
+    "name": "Sunflower Oil 1L",
+    "category": "Oils and Ghee",
+    "quantity": 10,
+    "price": 148.0,
+    "reorder_level": 11
+  },
+  {
+    "item_id": "ITM062",
+    "name": "Groundnut Oil 1L",
+    "category": "Oils and Ghee",
+    "quantity": 10,
+    "price": 155.0,
+    "reorder_level": 10
+  },
+  {
+    "item_id": "ITM063",
+    "name": "Mustard Oil 1L",
+    "category": "Oils and Ghee",
+    "quantity": 10,
+    "price": 162.0,
+    "reorder_level": 9
+  },
+  {
+    "item_id": "ITM064",
+    "name": "Coconut Oil 1L",
+    "category": "Oils and Ghee",
+    "quantity": 10,
+    "price": 198.0,
+    "reorder_level": 7
+  },
+  {
+    "item_id": "ITM065",
+    "name": "Ghee 500ml",
+    "category": "Oils and Ghee",
+    "quantity": 10,
+    "price": 340.0,
+    "reorder_level": 6
+  },
+  {
+    "item_id": "ITM066",
+    "name": "Vanaspati 1kg",
+    "category": "Oils and Ghee",
+    "quantity": 10,
+    "price": 176.0,
+    "reorder_level": 5
+  },
+  {
+    "item_id": "ITM067",
+    "name": "Sesame Oil 500ml",
+    "category": "Oils and Ghee",
+    "quantity": 10,
+    "price": 144.0,
+    "reorder_level": 5
+  },
+  {
+    "item_id": "ITM068",
+    "name": "Olive Oil 500ml",
+    "category": "Oils and Ghee",
+    "quantity": 10,
+    "price": 385.0,
+    "reorder_level": 4
+  },
+  {
+    "item_id": "ITM069",
+    "name": "Refined Oil 5L",
+    "category": "Oils and Ghee",
+    "quantity": 10,
+    "price": 720.0,
+    "reorder_level": 3
+  },
+  {
+    "item_id": "ITM070",
+    "name": "Cold Pressed Groundnut Oil 1L",
+    "category": "Oils and Ghee",
+    "quantity": 10,
+    "price": 238.0,
+    "reorder_level": 4
+  },
+  {
+    "item_id": "ITM071",
+    "name": "Toothpaste 100g",
+    "category": "Personal Care",
+    "quantity": 10,
+    "price": 48.0,
+    "reorder_level": 20
+  },
+  {
+    "item_id": "ITM072",
+    "name": "Toothbrush Soft",
+    "category": "Personal Care",
+    "quantity": 10,
+    "price": 22.0,
+    "reorder_level": 24
+  },
+  {
+    "item_id": "ITM073",
+    "name": "Soap Bath Bar",
+    "category": "Personal Care",
+    "quantity": 10,
+    "price": 30.0,
+    "reorder_level": 22
+  },
+  {
+    "item_id": "ITM074",
+    "name": "Shampoo 180ml",
+    "category": "Personal Care",
+    "quantity": 10,
+    "price": 122.0,
+    "reorder_level": 10
+  },
+  {
+    "item_id": "ITM075",
+    "name": "Hair Oil 200ml",
+    "category": "Personal Care",
+    "quantity": 10,
+    "price": 98.0,
+    "reorder_level": 9
+  },
+  {
+    "item_id": "ITM076",
+    "name": "Face Wash 100ml",
+    "category": "Personal Care",
+    "quantity": 10,
+    "price": 140.0,
+    "reorder_level": 7
+  },
+  {
+    "item_id": "ITM077",
+    "name": "Hand Wash 250ml",
+    "category": "Personal Care",
+    "quantity": 10,
+    "price": 74.0,
+    "reorder_level": 11
+  },
+  {
+    "item_id": "ITM078",
+    "name": "Shaving Cream 100g",
+    "category": "Personal Care",
+    "quantity": 10,
+    "price": 62.0,
+    "reorder_level": 6
+  },
+  {
+    "item_id": "ITM079",
+    "name": "Sanitary Pads Pack",
+    "category": "Personal Care",
+    "quantity": 10,
+    "price": 92.0,
+    "reorder_level": 8
+  },
+  {
+    "item_id": "ITM080",
+    "name": "Detergent Bar",
+    "category": "Personal Care",
+    "quantity": 10,
+    "price": 26.0,
+    "reorder_level": 14
+  },
+  {
+    "item_id": "ITM081",
+    "name": "Dishwash Liquid 500ml",
+    "category": "Household and Cleaning",
+    "quantity": 10,
+    "price": 72.0,
+    "reorder_level": 13
+  },
+  {
+    "item_id": "ITM082",
+    "name": "Floor Cleaner 1L",
+    "category": "Household and Cleaning",
+    "quantity": 10,
+    "price": 118.0,
+    "reorder_level": 9
+  },
+  {
+    "item_id": "ITM083",
+    "name": "Toilet Cleaner 500ml",
+    "category": "Household and Cleaning",
+    "quantity": 10,
+    "price": 94.0,
+    "reorder_level": 8
+  },
+  {
+    "item_id": "ITM084",
+    "name": "Detergent Powder 1kg",
+    "category": "Household and Cleaning",
+    "quantity": 10,
+    "price": 128.0,
+    "reorder_level": 12
+  },
+  {
+    "item_id": "ITM085",
+    "name": "Bleach 500ml",
+    "category": "Household and Cleaning",
+    "quantity": 10,
+    "price": 58.0,
+    "reorder_level": 6
+  },
+  {
+    "item_id": "ITM086",
+    "name": "Room Freshener Spray",
+    "category": "Household and Cleaning",
+    "quantity": 10,
+    "price": 135.0,
+    "reorder_level": 7
+  },
+  {
+    "item_id": "ITM087",
+    "name": "Glass Cleaner 500ml",
+    "category": "Household and Cleaning",
+    "quantity": 10,
+    "price": 88.0,
+    "reorder_level": 6
+  },
+  {
+    "item_id": "ITM088",
+    "name": "Garbage Bags Roll",
+    "category": "Household and Cleaning",
+    "quantity": 10,
+    "price": 52.0,
+    "reorder_level": 10
+  },
+  {
+    "item_id": "ITM089",
+    "name": "Mosquito Coil Pack",
+    "category": "Household and Cleaning",
+    "quantity": 10,
+    "price": 28.0,
+    "reorder_level": 16
+  },
+  {
+    "item_id": "ITM090",
+    "name": "Match Box",
+    "category": "Household and Cleaning",
+    "quantity": 10,
+    "price": 8.0,
+    "reorder_level": 30
+  },
+  {
+    "item_id": "ITM091",
+    "name": "Notebook A4",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 65.0,
+    "reorder_level": 20
+  },
+  {
+    "item_id": "ITM092",
+    "name": "Long Notebook",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 55.0,
+    "reorder_level": 18
+  },
+  {
+    "item_id": "ITM093",
+    "name": "Register Book 200 Pages",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 95.0,
+    "reorder_level": 10
+  },
+  {
+    "item_id": "ITM094",
+    "name": "Blue Ball Pen",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 10.0,
+    "reorder_level": 40
+  },
+  {
+    "item_id": "ITM095",
+    "name": "Black Ball Pen",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 10.0,
+    "reorder_level": 30
+  },
+  {
+    "item_id": "ITM096",
+    "name": "Gel Pen",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 20.0,
+    "reorder_level": 25
+  },
+  {
+    "item_id": "ITM097",
+    "name": "Pencil Pack 10 pcs",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 45.0,
+    "reorder_level": 15
+  },
+  {
+    "item_id": "ITM098",
+    "name": "Eraser",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 5.0,
+    "reorder_level": 30
+  },
+  {
+    "item_id": "ITM099",
+    "name": "Sharpener",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 8.0,
+    "reorder_level": 25
+  },
+  {
+    "item_id": "ITM100",
+    "name": "Scale 30cm",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 20.0,
+    "reorder_level": 12
+  },
+  {
+    "item_id": "ITM101",
+    "name": "Glue Stick",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 30.0,
+    "reorder_level": 10
+  },
+  {
+    "item_id": "ITM102",
+    "name": "Fevicol 100g",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 45.0,
+    "reorder_level": 8
+  },
+  {
+    "item_id": "ITM103",
+    "name": "Highlighter",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 35.0,
+    "reorder_level": 8
+  },
+  {
+    "item_id": "ITM104",
+    "name": "White Chalk Box",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 25.0,
+    "reorder_level": 6
+  },
+  {
+    "item_id": "ITM105",
+    "name": "Sketch Pen Set",
+    "category": "Stationery",
+    "quantity": 10,
+    "price": 85.0,
+    "reorder_level": 5
+  },
+  {
+    "item_id": "ITM106",
+    "name": "Cashew Nuts 250g",
+    "category": "Dry Fruits",
+    "quantity": 10,
+    "price": 245.0,
+    "reorder_level": 5
+  },
+  {
+    "item_id": "ITM107",
+    "name": "Almonds 250g",
+    "category": "Dry Fruits",
+    "quantity": 10,
+    "price": 265.0,
+    "reorder_level": 6
+  },
+  {
+    "item_id": "ITM108",
+    "name": "Raisins 250g",
+    "category": "Dry Fruits",
+    "quantity": 10,
+    "price": 96.0,
+    "reorder_level": 8
+  },
+  {
+    "item_id": "ITM109",
+    "name": "Pistachios 250g",
+    "category": "Dry Fruits",
+    "quantity": 10,
+    "price": 395.0,
+    "reorder_level": 4
+  },
+  {
+    "item_id": "ITM110",
+    "name": "Dates 500g",
+    "category": "Dry Fruits",
+    "quantity": 10,
+    "price": 118.0,
+    "reorder_level": 7
+  }
+]

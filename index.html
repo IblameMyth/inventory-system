@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory Control Center</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-card">
+      <div class="duel-layer" id="duelLayer" aria-hidden="true">
+        <div class="duel-orb duel-red"></div>
+        <div class="duel-orb duel-yellow"></div>
+        <div class="duel-slash slash-one"></div>
+        <div class="duel-slash slash-two"></div>
+        <div class="duel-slash slash-three"></div>
+      </div>
+      <div class="topbar">
+        <div class="brand">
+          <div class="eyebrow">College Mini Project</div>
+          <h1>Inventory Control Center</h1>
+          <p class="subtitle">A modern, interactive inventory dashboard for managing stock, tracking low items, and keeping a clean record of products in real time. Start from scratch and build your own custom catalog.</p>
+        </div>
+        <div class="badge-row">
+          <div class="badge" id="clock">Live system</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="layout">
+    <aside class="panel">
+      <div class="panel-header summary-header">
+        <div class="header-actions">
+          <button class="menu-toggle" id="loadDashboardBtn" title="Load Inventory Dashboard" aria-label="Load inventory dashboard">☰</button>
+        </div>
+        <h2>Quick Summary</h2>
+        <div class="header-tools" aria-label="Data tools">
+          <button class="secondary tiny tool-btn" id="exportBtn">Download JSON</button>
+          <button class="secondary tiny tool-btn" id="restockAllStockBtn">Restock All</button>
+          <button class="danger tiny tool-btn" id="sellAllStockBtn">Sell All Stock</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-label">Total Products</div>
+            <div class="stat-value" id="totalProducts">0</div>
+            <div class="stat-note">Unique items in stock</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Total Units</div>
+            <div class="stat-value" id="totalUnits">0</div>
+            <div class="stat-note">All available quantity</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Inventory Value</div>
+            <div class="stat-value" id="inventoryValue">Rs. 0</div>
+            <div class="stat-note">Current stock valuation</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Low Stock</div>
+            <div class="stat-value" id="lowStockCount">0</div>
+            <div class="stat-note">Needs restocking soon</div>
+          </div>
+        </div>
+
+        <div style="height:18px"></div>
+
+        <h2>Add New Item</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label for="itemId">Item ID</label>
+            <input id="itemId" type="text" placeholder="Optional: ITM101" />
+          </div>
+          <div class="field">
+            <label for="name">Item name</label>
+            <input id="name" type="text" placeholder="Example: Notebook" />
+          </div>
+          <div class="field">
+            <label for="category">Category</label>
+            <input id="category" type="text" placeholder="Example: Stationery" />
+          </div>
+          <div class="field">
+            <label for="quantity">Quantity</label>
+            <input id="quantity" type="number" min="0" placeholder="Example: 50" />
+          </div>
+          <div class="field">
+            <label for="price">Price per unit</label>
+            <input id="price" type="number" min="0" step="0.01" placeholder="Example: 35" />
+          </div>
+          <div class="field">
+            <label for="reorder">Reorder level</label>
+            <input id="reorder" type="number" min="0" placeholder="Example: 10" />
+          </div>
+          <div class="actions">
+            <button class="primary" id="addBtn">Add Item</button>
+            <button class="secondary" id="resetBtn">Reset Form</button>
+          </div>
+        </div>
+
+        <div class="footer-note">Tip: Click Sell, Restock, or Delete directly from the table to make the page feel interactive in your demo.</div>
+      </div>
+    </aside>
+
+    <section class="panel dashboard-hidden" id="dashboardSection">
+      <div class="panel-header">
+        <h2>Inventory Dashboard</h2>
+      </div>
+      <div class="panel-body">
+        <div class="toolbar">
+          <input id="search" type="text" placeholder="Search by id, name, or category" />
+          <select id="filterCategory">
+            <option value="all">All Categories</option>
+          </select>
+          <select id="filterStock">
+            <option value="all">All Stock</option>
+            <option value="low">Low Stock Only</option>
+            <option value="ok">In Stock Only</option>
+          </select>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Reorder</th>
+                <th>Stock Value</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+          <div class="empty" id="emptyState" style="display:none;">No items match your filters.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const API_BASE = window.location.port === "5500" ? "http://127.0.0.1:5000/api" : "/api";
+    const OFFLINE_CACHE_KEY = "inventory_offline_items";
+
+    const state = {
+      items: [],
+      search: "",
+      category: "all",
+      stock: "all"
+    };
+
+    let backendAvailable = true;
+
+    const els = {
+      tableBody: document.getElementById("tableBody"),
+      emptyState: document.getElementById("emptyState"),
+      totalProducts: document.getElementById("totalProducts"),
+      totalUnits: document.getElementById("totalUnits"),
+      inventoryValue: document.getElementById("inventoryValue"),
+      lowStockCount: document.getElementById("lowStockCount"),
+      itemId: document.getElementById("itemId"),
+      search: document.getElementById("search"),
+      filterCategory: document.getElementById("filterCategory"),
+      filterStock: document.getElementById("filterStock"),
+      name: document.getElementById("name"),
+      categoryInput: document.getElementById("category"),
+      quantity: document.getElementById("quantity"),
+      price: document.getElementById("price"),
+      reorder: document.getElementById("reorder"),
+      addBtn: document.getElementById("addBtn"),
+      resetBtn: document.getElementById("resetBtn"),
+      exportBtn: document.getElementById("exportBtn"),
+      restockAllStockBtn: document.getElementById("restockAllStockBtn"),
+      sellAllStockBtn: document.getElementById("sellAllStockBtn"),
+      loadDashboardBtn: document.getElementById("loadDashboardBtn"),
+      dashboardSection: document.getElementById("dashboardSection"),
+      clock: document.getElementById("clock")
+    };
+
+    async function apiRequest(path, options = {}) {
+      const response = await fetch(`${API_BASE}${path}`, {
+        headers: {
+          "Content-Type": "application/json"
+        },
+        ...options
+      });
+
+      let data = {};
+      try {
+        data = await response.json();
+      } catch {
+        data = {};
+      }
+
+      if (!response.ok) {
+        const message = data.error || "Request failed.";
+        throw new Error(message);
+      }
+
+      return data;
+    }
+
+    function normalizeLoadedItem(entry, index) {
+      return {
+        id: normalizeId(entry.id || entry.item_id || `ITM${String(index + 1).padStart(3, "0")}`),
+        name: String(entry.name || "Unnamed Item").trim(),
+        category: String(entry.category || "Stationery").trim(),
+        quantity: Math.max(0, Number(entry.quantity ?? 0) || 0),
+        price: Math.max(0, Number(entry.price ?? 0) || 0),
+        reorder: Math.max(0, Number(entry.reorder ?? entry.reorder_level ?? 0) || 0)
+      };
+    }
+
+    async function loadFromJsonFallback() {
+      const fallbackSources = [
+        "/inventory_data.json?v=" + Date.now(),
+        "../backend/inventory_data.json?v=" + Date.now(),
+        "inventory_data.json?v=" + Date.now()
+      ];
+
+      for (const source of fallbackSources) {
+        try {
+          const response = await fetch(source);
+          if (!response.ok) {
+            continue;
+          }
+          const parsed = await response.json();
+          if (Array.isArray(parsed)) {
+            return parsed;
+          }
+        } catch {
+          continue;
+        }
+      }
+
+      return null;
+    }
+
+    async function loadInventoryData() {
+      try {
+        const data = await apiRequest("/items");
+        state.items = Array.isArray(data.items) ? data.items.map(normalizeLoadedItem) : [];
+        if (state.items.length === 0) {
+          const fallbackData = await loadFromJsonFallback();
+          if (Array.isArray(fallbackData) && fallbackData.length > 0) {
+            state.items = fallbackData.map(normalizeLoadedItem);
+          }
+        }
+        backendAvailable = true;
+        localStorage.removeItem(OFFLINE_CACHE_KEY);
+      } catch (error) {
+        backendAvailable = false;
+        try {
+          const cached = localStorage.getItem(OFFLINE_CACHE_KEY);
+          if (cached) {
+            const cacheData = JSON.parse(cached);
+            if (Array.isArray(cacheData)) {
+              state.items = cacheData.map(normalizeLoadedItem);
+            }
+          }
+
+          if (state.items.length === 0) {
+            const fileData = await loadFromJsonFallback();
+            if (!fileData) {
+              throw new Error("Inventory file not found.");
+            }
+            state.items = fileData.map(normalizeLoadedItem);
+          }
+        } catch {
+          alert(error.message || "Unable to load inventory data.");
+          return;
+        }
+      }
+
+      state.search = "";
+      state.category = "all";
+      state.stock = "all";
+      els.search.value = "";
+      els.filterCategory.value = "all";
+      els.filterStock.value = "all";
+      updateFilters();
+      renderTable();
+
+      if (state.items.length === 0) {
+        alert("Inventory file is empty. Add items or update inventory_data.json.");
+      }
+    }
+
+    function setDashboardVisible(isVisible) {
+      els.dashboardSection.classList.toggle("dashboard-hidden", !isVisible);
+    }
+
+    function money(value) {
+      return `Rs. ${Number(value).toFixed(2)}`;
+    }
+
+    function normalizeId(value) {
+      return String(value || "").trim().toUpperCase();
+    }
+
+    function saveOfflineCache() {
+      localStorage.setItem(OFFLINE_CACHE_KEY, JSON.stringify(state.items));
+    }
+
+    function toPositiveNumber(value) {
+      const number = Number(value);
+      return Number.isFinite(number) && number >= 0 ? number : null;
+    }
+
+    function setClock() {
+      const now = new Date();
+      els.clock.textContent = now.toLocaleString([], {
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit"
+      });
+    }
+
+    function initDuelAnimations() {
+      const layer = document.getElementById("duelLayer");
+      if (!layer) return;
+
+      layer.addEventListener("mousemove", (event) => {
+        const rect = layer.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        layer.style.setProperty("--mx", `${x}%`);
+        layer.style.setProperty("--my", `${y}%`);
+      });
+
+      layer.addEventListener("click", (event) => {
+        const rect = layer.getBoundingClientRect();
+        const spark = document.createElement("span");
+        spark.className = "duel-spark";
+        spark.style.left = `${event.clientX - rect.left}px`;
+        spark.style.top = `${event.clientY - rect.top}px`;
+        layer.appendChild(spark);
+        window.setTimeout(() => spark.remove(), 700);
+      });
+    }
+
+    function normalize(text) {
+      return String(text || "").toLowerCase().trim();
+    }
+
+    function filteredItems() {
+      return state.items.filter((item) => {
+        const matchesSearch = [item.id, item.name, item.category].some((value) =>
+          normalize(value).includes(state.search)
+        );
+        const matchesCategory = state.category === "all" || normalize(item.category) === state.category;
+        const isLow = item.quantity <= item.reorder;
+        const matchesStock =
+          state.stock === "all" ||
+          (state.stock === "low" && isLow) ||
+          (state.stock === "ok" && !isLow);
+        return matchesSearch && matchesCategory && matchesStock;
+      });
+    }
+
+    function updateFilters() {
+      const categories = [...new Set(state.items.map((item) => item.category))].sort();
+      const current = els.filterCategory.value || "all";
+      els.filterCategory.innerHTML = '<option value="all">All Categories</option>';
+      categories.forEach((category) => {
+        const option = document.createElement("option");
+        option.value = normalize(category);
+        option.textContent = category;
+        els.filterCategory.appendChild(option);
+      });
+      els.filterCategory.value = categories.some((category) => normalize(category) === current) ? current : "all";
+    }
+
+    function updateStats() {
+      const totalProducts = state.items.length;
+      const totalUnits = state.items.reduce((sum, item) => sum + item.quantity, 0);
+      const inventoryValue = state.items.reduce((sum, item) => sum + item.quantity * item.price, 0);
+      const lowStockCount = state.items.filter((item) => item.quantity <= item.reorder).length;
+
+      els.totalProducts.textContent = totalProducts;
+      els.totalUnits.textContent = totalUnits;
+      els.inventoryValue.textContent = money(inventoryValue);
+      els.lowStockCount.textContent = lowStockCount;
+    }
+
+    function renderTable() {
+      const items = filteredItems();
+      els.tableBody.innerHTML = "";
+      els.emptyState.style.display = items.length ? "none" : "block";
+
+      items.forEach((item) => {
+        const isLow = item.quantity <= item.reorder;
+        const row = document.createElement("tr");
+        if (isLow) row.classList.add("low-stock");
+
+        row.innerHTML = `
+          <td>${item.id}</td>
+          <td><strong>${item.name}</strong></td>
+          <td>${item.category}</td>
+          <td>${item.quantity}</td>
+          <td>${money(item.price)}</td>
+          <td>${item.reorder}</td>
+          <td>${money(item.quantity * item.price)}</td>
+          <td><span class="pill ${isLow ? "low" : "ok"}">${isLow ? "Low Stock" : "In Stock"}</span></td>
+          <td>
+            <div class="row-actions">
+              <button class="tiny secondary" data-action="restock" data-id="${item.id}">Restock</button>
+              <button class="tiny secondary" data-action="sell" data-id="${item.id}">Sell</button>
+              <button class="tiny secondary" data-action="sell-all" data-id="${item.id}">Sell All</button>
+              <button class="tiny danger" data-action="delete" data-id="${item.id}">Delete</button>
+            </div>
+          </td>
+        `;
+
+        els.tableBody.appendChild(row);
+      });
+
+      updateStats();
+    }
+
+    function resetForm() {
+      els.itemId.value = "";
+      els.name.value = "";
+      els.categoryInput.value = "";
+      els.quantity.value = "";
+      els.price.value = "";
+      els.reorder.value = "";
+      els.name.focus();
+    }
+
+    async function addItem() {
+      const itemId = normalizeId(els.itemId.value);
+      const name = els.name.value.trim();
+      const category = els.categoryInput.value.trim();
+      const quantity = toPositiveNumber(els.quantity.value);
+      const price = toPositiveNumber(els.price.value);
+      const reorder = toPositiveNumber(els.reorder.value);
+
+      if (!name || !category || quantity === null || price === null || reorder === null) {
+        alert("Please fill all fields with valid values.");
+        return;
+      }
+
+      const finalId = itemId || (() => {
+        const highest = state.items.reduce((max, item) => {
+          const match = String(item.id || "").toUpperCase().match(/^ITM(\d+)$/);
+          return match ? Math.max(max, Number(match[1])) : max;
+        }, 0);
+        return `ITM${String(highest + 1).padStart(3, "0")}`;
+      })();
+
+      if (state.items.some((item) => normalizeId(item.id) === finalId)) {
+        alert("This Item ID already exists. Use a different one.");
+        return;
+      }
+
+      try {
+        const data = await apiRequest("/items", {
+          method: "POST",
+          body: JSON.stringify({
+            id: finalId,
+            name,
+            category,
+            quantity,
+            price,
+            reorder
+          })
+        });
+
+        state.items = Array.isArray(data.items) ? data.items : state.items;
+        backendAvailable = true;
+        updateFilters();
+        resetForm();
+        renderTable();
+      } catch (error) {
+        backendAvailable = false;
+        state.items.unshift({
+          id: finalId,
+          name,
+          category,
+          quantity,
+          price,
+          reorder
+        });
+        saveOfflineCache();
+        updateFilters();
+        resetForm();
+        renderTable();
+        exportJson();
+        alert("Backend is not running. Item added locally and updated JSON downloaded. Replace inventory_data.json with the downloaded file.");
+      }
+    }
+
+    async function handleTableAction(button) {
+      const id = normalizeId(button.dataset.id);
+      const action = button.dataset.action;
+      const item = state.items.find((entry) => normalizeId(entry.id) === id);
+      if (!item) return;
+
+      try {
+        let data;
+        if (action === "restock") {
+          try {
+            data = await apiRequest(`/items/${encodeURIComponent(id)}/restock`, {
+              method: "POST",
+              body: JSON.stringify({ units: 10 })
+            });
+          } catch {
+            item.quantity += 10;
+            data = { items: state.items };
+          }
+        } else if (action === "sell") {
+          try {
+            data = await apiRequest(`/items/${encodeURIComponent(id)}/sell`, {
+              method: "POST",
+              body: JSON.stringify({ units: 1 })
+            });
+          } catch {
+            if (item.quantity <= 0) {
+              alert("Not enough stock for this sale.");
+              return;
+            }
+            item.quantity -= 1;
+            data = { items: state.items };
+          }
+        } else if (action === "sell-all") {
+          try {
+            data = await apiRequest(`/items/${encodeURIComponent(id)}/sell-all`, {
+              method: "POST"
+            });
+          } catch {
+            item.quantity = 0;
+            data = { items: state.items };
+          }
+        } else if (action === "delete") {
+          const confirmDelete = confirm(`Delete ${item.name} from inventory?`);
+          if (!confirmDelete) return;
+          try {
+            data = await apiRequest(`/items/${encodeURIComponent(id)}`, {
+              method: "DELETE"
+            });
+          } catch {
+            state.items = state.items.filter((entry) => normalizeId(entry.id) !== id);
+            data = { items: state.items };
+          }
+        }
+
+        if (data && Array.isArray(data.items)) {
+          state.items = data.items;
+          saveOfflineCache();
+          updateFilters();
+          renderTable();
+        }
+      } catch (error) {
+        if (action === "restock") {
+          item.quantity += 10;
+        } else if (action === "sell") {
+          if (item.quantity <= 0) {
+            alert("Not enough stock for this sale.");
+            return;
+          }
+          item.quantity -= 1;
+        } else if (action === "sell-all") {
+          item.quantity = 0;
+        } else if (action === "delete") {
+          state.items = state.items.filter((entry) => normalizeId(entry.id) !== id);
+        } else {
+          alert(error.message || "Unable to update item.");
+          return;
+        }
+
+        saveOfflineCache();
+        updateFilters();
+        renderTable();
+      }
+    }
+
+    function exportJson() {
+      const blob = new Blob([JSON.stringify(state.items, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "inventory_data.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    async function sellAllStock() {
+      const confirmSellAll = confirm("Sell all stock for all items? Quantity for every item will become 0.");
+      if (!confirmSellAll) return;
+
+      try {
+        let data;
+        try {
+          data = await apiRequest("/items/sell-all", { method: "POST" });
+        } catch {
+          for (const item of state.items) {
+            item.quantity = 0;
+          }
+          data = { items: state.items };
+        }
+
+        state.items = Array.isArray(data.items) ? data.items : state.items;
+        updateFilters();
+        renderTable();
+      } catch (error) {
+        alert(error.message || "Unable to sell all stock.");
+      }
+    }
+
+    async function restockAllStock() {
+      const inputUnits = prompt("Enter units to add to each item:", "10");
+      if (inputUnits === null) return;
+
+      const units = Number(inputUnits);
+      if (!Number.isFinite(units) || units <= 0) {
+        alert("Please enter a valid positive number.");
+        return;
+      }
+
+      try {
+        let data;
+        try {
+          data = await apiRequest("/items/restock-all", {
+            method: "POST",
+            body: JSON.stringify({ units })
+          });
+        } catch {
+          for (const item of state.items) {
+            item.quantity += units;
+          }
+          data = { items: state.items };
+        }
+
+        state.items = Array.isArray(data.items) ? data.items : state.items;
+        updateFilters();
+        renderTable();
+      } catch (error) {
+        alert(error.message || "Unable to restock all items.");
+      }
+    }
+
+    els.addBtn.addEventListener("click", () => {
+      addItem();
+    });
+    els.resetBtn.addEventListener("click", resetForm);
+    els.search.addEventListener("input", (event) => {
+      state.search = normalize(event.target.value);
+      renderTable();
+    });
+    els.filterCategory.addEventListener("change", (event) => {
+      state.category = event.target.value;
+      renderTable();
+    });
+    els.filterStock.addEventListener("change", (event) => {
+      state.stock = event.target.value;
+      renderTable();
+    });
+    els.tableBody.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-action]");
+      if (button) {
+        handleTableAction(button);
+      }
+    });
+    els.exportBtn.addEventListener("click", exportJson);
+    els.restockAllStockBtn.addEventListener("click", () => {
+      restockAllStock();
+    });
+    els.sellAllStockBtn.addEventListener("click", () => {
+      sellAllStock();
+    });
+    els.loadDashboardBtn.addEventListener("click", async () => {
+      await loadInventoryData();
+      setDashboardVisible(true);
+      els.dashboardSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        const isFormField = [els.itemId, els.name, els.categoryInput, els.quantity, els.price, els.reorder].includes(document.activeElement);
+        if (isFormField) {
+          addItem();
+        }
+      }
+    });
+
+    setClock();
+    setDashboardVisible(false);
+    initDuelAnimations();
+    setInterval(setClock, 30000);
+  </script>
+</body>
+</html>
